@@ -1,0 +1,27 @@
+{
+  "name": "node-keepachangelog",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm run manager:install",
+    "manager:install": "node manager --task=install",
+    "manager:outdated": "node manager --task=outdated",
+    "manager:build": "node manager --task=build",
+    "manager:watch": "node manager --task=watch",
+    "manager:documentation": "node manager --task=documentation",
+    "manager:prepare": "node manager --task=prepare",
+    "manager:rebuild": "node manager --task=rebuild",
+    "manager:publish": "node manager --task=publish",
+    "manager:publish:unsafe": "node manager --task=publish:unsafe",
+    "test": "node test --scope=all",
+    "test:standards": "node test --scope=standards",
+    "test:unit": "node test --scope=unit",
+    "test:feature": "node test --scope=feature",
+    "test:integration": "node test --scope=integration",
+    "test:endtoend": "node test --scope=endtoend"
+  },
+  "devDependencies": {
+    "@absolunet/manager": "2.0.0",
+    "@absolunet/tester": "3.1.0",
+    "lerna": "3.19.0"
+  }
+}

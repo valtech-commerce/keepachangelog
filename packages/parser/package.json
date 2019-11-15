@@ -1,0 +1,49 @@
+{
+  "name": "@absolunet/keepachangelog-parser",
+  "version": "1.0.0",
+  "description": "Parser for Keep a Changelog",
+  "definition": "",
+  "homepage": "https://documentation.absolunet.com/node-keepachangelog/parser",
+  "author": {
+    "name": "Absolunet",
+    "url": "https://absolunet.com"
+  },
+  "keywords": [
+    "changelog",
+    "keepachangelog",
+    "keep-a-changelog",
+    "marked",
+    "parser"
+  ],
+  "license": "MIT",
+  "repository": {
+    "url": "git://github.com/absolunet/node-keepachangelog.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/absolunet/node-keepachangelog/issues"
+  },
+  "engines": {
+    "node": ">= 12.0.0"
+  },
+  "main": "dist/node",
+  "scripts": {
+    "test": "node test --scope=all",
+    "test:standards": "node test --scope=standards",
+    "test:unit": "node test --scope=unit",
+    "test:feature": "node test --scope=feature",
+    "test:integration": "node test --scope=integration",
+    "test:endtoend": "node test --scope=endtoend"
+  },
+  "devDependencies": {
+    "@absolunet/tester": "3.1.0"
+  },
+  "dependencies": {
+    "@absolunet/capturing-group-values": "^1.0.0",
+    "@absolunet/fss": "^1.6.2",
+    "@absolunet/joi": "^0.1.0",
+    "marked": "^0.7.0",
+    "moment": "^2.24.0",
+    "semver": "^6.3.0"
+  }
+}
