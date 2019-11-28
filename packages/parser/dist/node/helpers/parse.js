@@ -15,7 +15,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //--------------------------------------------------------
 //-- Changelog parser helper
 //--------------------------------------------------------
-const RELEASE_PATTERN = /^(?<versionFull>\[?(?<version>[^\]\s]+)\]?) - (?<date>[^\n\[]+)(?<flagFull>\[(?<flag>.*)\])?$/u;
+const RELEASE_PATTERN = /^(?<versionFull>\[?(?<version>[^\]\s]+)\]?) - (?<date>[^\n[]+)(?<flagFull>\[(?<flag>.*)\])?$/u;
 const VERSION_LINKED = /^\[.+\]$/u;
 const RELEASE_SEPARATOR = '## ';
 const CHANGETYPE_SEPARATOR = '### ';

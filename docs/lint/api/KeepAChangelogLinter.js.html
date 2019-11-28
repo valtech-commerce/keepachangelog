@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>KeepAChangelogLinter.js - @absolunet/keepachangelog-lint API documentation</title>
+
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta http-equiv="cleartype" content="on">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon"    href="../../assets__/icons/favicon.ico">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-57.png">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-72.png"  sizes="72x72">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-76.png"  sizes="76x76">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-114.png" sizes="114x114">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-120.png" sizes="120x120">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-144.png" sizes="144x144">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-152.png" sizes="152x152">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-167.png" sizes="167x167">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-180.png" sizes="180x180">
+	<link rel="image_src"        href="../../assets__/icons/touch-512.png">
+	<link rel="icon"             href="../../assets__/icons/icon-64.png"  sizes="64x64">
+	<link rel="icon"             href="../../assets__/icons/icon-96.png"  sizes="96x96">
+	<link rel="icon"             href="../../assets__/icons/icon-192.png" sizes="192x192">
+	<link rel="icon"             href="../../assets__/icons/icon-195.png" sizes="195x195">
+	<link rel="icon"             href="../../assets__/icons/icon-196.png" sizes="196x196">
+	<link rel="icon"             href="../../assets__/icons/icon-228.png" sizes="228x228">
+
+	<meta name="application-name"                content="@absolunet/keepachangelog-lint">
+	<meta name="msapplication-TileColor"         content="#2b2d3c">
+	<meta name="msapplication-square70x70logo"   content="../../assets__/icons/tile-small.png">
+	<meta name="msapplication-square150x150logo" content="../../assets__/icons/tile-medium.png">
+	<meta name="msapplication-wide310x150logo"   content="../../assets__/icons/tile-wide.png">
+	<meta name="msapplication-square310x310logo" content="../../assets__/icons/tile-large.png">
+
+	<link href="../../assets__/main.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,500,700|Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+	
+	<!-- @absolunet/manager@2.0.0 (c) 2011-2019 Absolunet -->
+</head>
+<body>
+	
+
+	<header>
+		<p class="package"><a href="../">@absolunet/keepachangelog-lint</a><span class="version">1.0.0</span></p>
+		<a href="https://github.com/absolunet/node-keepachangelog" class="github" data-external="external">View on GitHub</a>
+	</header>
+
+	<div class="container">
+		<nav><div>
+			<h2><a href="index.html">API Home</a></h2><h3>Modules</h3><ul><li><a href="module-@absolunet_keepachangelog-lint.html">@absolunet/keepachangelog-lint</a><ul class='members'><li data-type='member'><a href="module-@absolunet_keepachangelog-lint.html#~Linter">Linter</a></li></ul></li></ul><h3>Classes</h3><ul><li><a href="KeepAChangelogLinter.html">KeepAChangelogLinter</a><ul class='members'></ul><ul class='methods'><li data-type='method'><a href="KeepAChangelogLinter.html#executeOnFile">executeOnFile</a></li><li data-type='method'><a href="KeepAChangelogLinter.html#getFormatter">getFormatter</a></li></ul></li><li><a href="ConfigError.html">ConfigError</a><ul class='members'></ul></li><li><a href="ExtractHelper.html">ExtractHelper</a><ul class='members'></ul><ul class='methods'><li data-type='method'><a href="ExtractHelper.html#versions">versions</a></li><li data-type='method'><a href="ExtractHelper.html#links">links</a></li><li data-type='method'><a href="ExtractHelper.html#dates">dates</a></li><li data-type='method'><a href="ExtractHelper.html#flags">flags</a></li><li data-type='method'><a href="ExtractHelper.html#details">details</a></li><li data-type='method'><a href="ExtractHelper.html#changesTypes">changesTypes</a></li></ul></li></ul>
+		</div></nav>
+
+		<div id="main">
+		
+			<h1 class="page-title">KeepAChangelogLinter.js</h1>
+		
+
+			
+
+
+
+    
+    <section>
+        <article>
+            <pre id="line" class="line-numbers"><code class="language-js">//--------------------------------------------------------
+//-- Linter
+//--------------------------------------------------------
+import clone                     from 'clone-deep';
+import merge                     from 'deepmerge';
+import { Joi, validateArgument } from '@absolunet/joi';
+import { parser }                from '@absolunet/keepachangelog-parser';
+import __                        from '@absolunet/private-registry';
+import formatters                from './formatters';
+import ConfigError               from './helpers/config-error';
+import defaultRules              from './rules';
+
+
+/**
+ * Keep a Changelog linter.
+ *
+ * @hideconstructor
+ */
+class KeepAChangelogLinter {
+
+	/**
+	 * Create a Linter.
+	 *
+	 * @param {object} config - Configurations.
+	 */
+	constructor(config = {}) {
+		validateArgument('config', config, Joi.object().pattern(/.+/u, Joi.array().ordered(Joi.boolean().required(), Joi.any())));
+
+		const rules = clone(defaultRules);
+
+		Object.entries(config).forEach(([id, [enabled, customConfig]]) => {
+			if (rules[id]) {
+
+				const { error } = Joi.object({ options: rules[id].schema }).validate({ options: customConfig });
+				if (error) {
+					throw new ConfigError(`Invalid options for '${id}': ${error.details[0].message}.`);
+				}
+
+				const mergedConfig = typeof customConfig !== 'undefined' ? merge(rules[id].config[1] || {}, customConfig) : rules[id].config[1];
+				rules[id].config = [enabled, mergedConfig];
+
+			} else {
+				throw new ConfigError(`Rule '${id}' does not exists.`);
+			}
+		});
+
+		__(this).set('rules', rules);
+	}
+
+
+	/**
+	 * Execute the linter.
+	 *
+	 * @async
+	 * @param {string} file - Path of the changelog file.
+	 * @returns {Promise&lt;{ filePath: string, results: object }>} When method completed.
+	 */
+	async executeOnFile(file) {
+		validateArgument('file', file, Joi.string().required());
+
+		let results = [];
+		const { data, filePath } = parser.parseFile(file);
+
+		for (const { rule, config } of Object.values(__(this).get('rules'))) {
+			results = results.concat(...await rule({ filePath, data, config }));  // eslint-disable-line no-await-in-loop
+		}
+
+		return { filePath, results };
+	}
+
+
+	/**
+	 * Retrieve a linter report formatter.
+	 *
+	 * @param {string} [formatter="stylish"] - Formatter name.
+	 * @returns {Function} Formatter.
+	 */
+	getFormatter(formatter = 'stylish') {
+		validateArgument('formatter', formatter, Joi.string().valid(...Object.keys(formatters)).required());
+
+		return formatters[formatter].formatter;
+	}
+
+}
+
+
+export default KeepAChangelogLinter;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+		</div>
+	</div>
+
+	<footer>
+		MIT © 2011-2019 <span class="made">Made with <span class="adjective" data-component="adjective">&#x2764;</span> by <a href="https://absolunet.com" data-external="external">Absolunet</a></span>
+	</footer>
+
+	<script src="../../assets__/main.js"></script>
+
+</body>
+</html>

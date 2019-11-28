@@ -7,7 +7,7 @@ import semver               from 'semver';
 import capturingGroupValues from '@absolunet/capturing-group-values';
 
 
-const RELEASE_PATTERN      = /^(?<versionFull>\[?(?<version>[^\]\s]+)\]?) - (?<date>[^\n\[]+)(?<flagFull>\[(?<flag>.*)\])?$/u;
+const RELEASE_PATTERN      = /^(?<versionFull>\[?(?<version>[^\]\s]+)\]?) - (?<date>[^\n[]+)(?<flagFull>\[(?<flag>.*)\])?$/u;
 const VERSION_LINKED       = /^\[.+\]$/u;
 const RELEASE_SEPARATOR    = '## ';
 const CHANGETYPE_SEPARATOR = '### ';
@@ -103,7 +103,7 @@ const processRelease = (release, links) => {
 
 		release.raw.version = version || '';
 		release.raw.date    = date || '';
-		release.raw.flag    = flagFull ? (flag || '') : (flag || undefined);
+		release.raw.flag    = flagFull ? flag || '' : flag || undefined;
 
 		release.version = semver.parse(version);
 		release.date    = moment(date);
@@ -165,7 +165,7 @@ const processRelease = (release, links) => {
 
 
 export default (content) => {
-	moment.suppressDeprecationWarnings = true
+	moment.suppressDeprecationWarnings = true;
 
 	const tokens     = marked.lexer(content);
 	const rawContent = splitRaw(content, RELEASE_SEPARATOR);

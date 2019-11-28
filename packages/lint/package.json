@@ -1,0 +1,55 @@
+{
+  "name": "@absolunet/keepachangelog-lint",
+  "version": "1.0.0",
+  "description": "Linter for Keep a Changelog",
+  "definition": "",
+  "homepage": "https://documentation.absolunet.com/node-keepachangelog/lint",
+  "author": {
+    "name": "Absolunet",
+    "url": "https://absolunet.com"
+  },
+  "keywords": [
+    "changelog",
+    "keepachangelog",
+    "keep-a-changelog",
+    "lint",
+    "linter"
+  ],
+  "license": "MIT",
+  "repository": {
+    "url": "git://github.com/absolunet/node-keepachangelog.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/absolunet/node-keepachangelog/issues"
+  },
+  "engines": {
+    "node": ">= 12.0.0"
+  },
+  "main": "dist/node",
+  "scripts": {
+    "test": "node test --scope=all",
+    "test:standards": "node test --scope=standards",
+    "test:unit": "node test --scope=unit",
+    "test:feature": "node test --scope=feature",
+    "test:integration": "node test --scope=integration",
+    "test:endtoend": "node test --scope=endtoend"
+  },
+  "devDependencies": {
+    "@absolunet/tester": "3.1.1"
+  },
+  "dependencies": {
+    "@absolunet/joi": "^0.2.0",
+    "@absolunet/keepachangelog-parser": "1.0.0",
+    "@absolunet/private-registry": "^2.0.0",
+    "chalk": "^3.0.0",
+    "clone-deep": "^4.0.1",
+    "deepmerge": "^4.2.2",
+    "figures": "^3.1.0",
+    "moment": "^2.24.0",
+    "pluralize": "^8.0.0",
+    "semver": "^7.1.1",
+    "strip-ansi": "^6.0.0",
+    "text-table": "^0.2.0"
+  }
+}

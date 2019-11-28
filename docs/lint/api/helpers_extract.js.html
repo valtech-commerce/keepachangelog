@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>helpers/extract.js - @absolunet/keepachangelog-lint API documentation</title>
+
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta http-equiv="cleartype" content="on">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon"    href="../../assets__/icons/favicon.ico">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-57.png">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-72.png"  sizes="72x72">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-76.png"  sizes="76x76">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-114.png" sizes="114x114">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-120.png" sizes="120x120">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-144.png" sizes="144x144">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-152.png" sizes="152x152">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-167.png" sizes="167x167">
+	<link rel="apple-touch-icon" href="../../assets__/icons/touch-180.png" sizes="180x180">
+	<link rel="image_src"        href="../../assets__/icons/touch-512.png">
+	<link rel="icon"             href="../../assets__/icons/icon-64.png"  sizes="64x64">
+	<link rel="icon"             href="../../assets__/icons/icon-96.png"  sizes="96x96">
+	<link rel="icon"             href="../../assets__/icons/icon-192.png" sizes="192x192">
+	<link rel="icon"             href="../../assets__/icons/icon-195.png" sizes="195x195">
+	<link rel="icon"             href="../../assets__/icons/icon-196.png" sizes="196x196">
+	<link rel="icon"             href="../../assets__/icons/icon-228.png" sizes="228x228">
+
+	<meta name="application-name"                content="@absolunet/keepachangelog-lint">
+	<meta name="msapplication-TileColor"         content="#2b2d3c">
+	<meta name="msapplication-square70x70logo"   content="../../assets__/icons/tile-small.png">
+	<meta name="msapplication-square150x150logo" content="../../assets__/icons/tile-medium.png">
+	<meta name="msapplication-wide310x150logo"   content="../../assets__/icons/tile-wide.png">
+	<meta name="msapplication-square310x310logo" content="../../assets__/icons/tile-large.png">
+
+	<link href="../../assets__/main.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,500,700|Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+	
+	<!-- @absolunet/manager@2.0.0 (c) 2011-2019 Absolunet -->
+</head>
+<body>
+	
+
+	<header>
+		<p class="package"><a href="../">@absolunet/keepachangelog-lint</a><span class="version">1.0.0</span></p>
+		<a href="https://github.com/absolunet/node-keepachangelog" class="github" data-external="external">View on GitHub</a>
+	</header>
+
+	<div class="container">
+		<nav><div>
+			<h2><a href="index.html">API Home</a></h2><h3>Modules</h3><ul><li><a href="module-@absolunet_keepachangelog-lint.html">@absolunet/keepachangelog-lint</a><ul class='members'><li data-type='member'><a href="module-@absolunet_keepachangelog-lint.html#~Linter">Linter</a></li></ul></li></ul><h3>Classes</h3><ul><li><a href="KeepAChangelogLinter.html">KeepAChangelogLinter</a><ul class='members'></ul><ul class='methods'><li data-type='method'><a href="KeepAChangelogLinter.html#executeOnFile">executeOnFile</a></li><li data-type='method'><a href="KeepAChangelogLinter.html#getFormatter">getFormatter</a></li></ul></li><li><a href="ConfigError.html">ConfigError</a><ul class='members'></ul></li><li><a href="ExtractHelper.html">ExtractHelper</a><ul class='members'></ul><ul class='methods'><li data-type='method'><a href="ExtractHelper.html#versions">versions</a></li><li data-type='method'><a href="ExtractHelper.html#links">links</a></li><li data-type='method'><a href="ExtractHelper.html#dates">dates</a></li><li data-type='method'><a href="ExtractHelper.html#flags">flags</a></li><li data-type='method'><a href="ExtractHelper.html#details">details</a></li><li data-type='method'><a href="ExtractHelper.html#changesTypes">changesTypes</a></li></ul></li></ul>
+		</div></nav>
+
+		<div id="main">
+		
+			<h1 class="page-title">helpers/extract.js</h1>
+		
+
+			
+
+
+
+    
+    <section>
+        <article>
+            <pre id="line" class="line-numbers"><code class="language-js">//--------------------------------------------------------
+//-- Extract helper
+//--------------------------------------------------------
+
+/**
+ * Extract specifc fields from raw parsed data .
+ *
+ * @hideconstructor
+ */
+class ExtractHelper {
+
+	/**
+	 * Extract the versions.
+	 *
+	 * @param {object} data - Raw parsed data.
+	 * @returns {Array&lt;{ version: string, title: string }>} List of versions and release titles.
+	 */
+	versions({ releases }) {
+		return releases.map(({ raw: { version, title } }) => {
+			return { version, title };
+		});
+	}
+
+
+	/**
+	 * Extract the links.
+	 *
+	 * @param {object} data - Raw parsed data.
+	 * @returns {Array&lt;{ link: string, title: string }>} List of links and release titles.
+	 */
+	links({ releases }) {
+		return releases.map(({ link, raw: { title } }) => {
+			return { link, title };
+		});
+	}
+
+
+	/**
+	 * Extract the dates.
+	 *
+	 * @param {object} data - Raw parsed data.
+	 * @returns {Array&lt;{ date: string, title: string }>} List of dates and release titles.
+	 */
+	dates({ releases }) {
+		return releases.map(({ raw: { date, title } }) => {
+			return { date, title };
+		});
+	}
+
+
+	/**
+	 * Extract the flags.
+	 *
+	 * @param {object} data - Raw parsed data.
+	 * @returns {Array&lt;{ flag: string, title: string }>} List of flags and release titles.
+	 */
+	flags({ releases }) {
+		return releases.map(({ raw: { flag, title } }) => {
+			return { flag, title };
+		});
+	}
+
+
+	/**
+	 * Extract the details.
+	 *
+	 * @param {object} data - Raw parsed data.
+	 * @returns {Array&lt;{ details: string, title: string }>} List of details and release titles.
+	 */
+	details({ releases }) {
+		return releases.map(({ raw: { details, title } }) => {
+			return { details, title };
+		});
+	}
+
+
+	/**
+	 * Extract the change types.
+	 *
+	 * @param {object} data - Raw parsed data.
+	 * @returns {Array&lt;{ type: string, title: string }>} List of change types and release titles.
+	 */
+	changesTypes({ raw: { title } = {}, changes = [] }) {
+		return changes.map(({ type }) => {
+			return { type, title };
+		});
+	}
+
+}
+
+
+export default new ExtractHelper();
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+		</div>
+	</div>
+
+	<footer>
+		MIT © 2011-2019 <span class="made">Made with <span class="adjective" data-component="adjective">&#x2764;</span> by <a href="https://absolunet.com" data-external="external">Absolunet</a></span>
+	</footer>
+
+	<script src="../../assets__/main.js"></script>
+
+</body>
+</html>
