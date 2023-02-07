@@ -7,19 +7,18 @@ Object.defineProperty(exports, "Parser", {
   }
 });
 exports.parser = void 0;
-
 var _KeepAChangelogParser = _interopRequireDefault(require("./KeepAChangelogParser"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//--------------------------------------------------------
+//-- @valtech-commerce/keepachangelog-parser
+//--------------------------------------------------------
 
-//--------------------------------------------------------
-//-- @absolunet/keepachangelog-parser
-//--------------------------------------------------------
 const parser = new _KeepAChangelogParser.default();
+
 /**
  * Exports the KeepAChangelogParser class.
  *
- * @module @absolunet/keepachangelog-parser
+ * @module @valtech-commerce/keepachangelog-parser
  */
 
 /**
@@ -28,5 +27,4 @@ const parser = new _KeepAChangelogParser.default();
  * @name Parser
  * @type {KeepAChangelogParser}
  **/
-
 exports.parser = parser;

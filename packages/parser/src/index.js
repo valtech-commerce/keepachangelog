@@ -1,5 +1,5 @@
 //--------------------------------------------------------
-//-- @absolunet/keepachangelog-parser
+//-- @valtech-commerce/keepachangelog-parser
 //--------------------------------------------------------
 import KeepAChangelogParser from './KeepAChangelogParser';
 
@@ -13,7 +13,7 @@ const parser = new KeepAChangelogParser();
 /**
  * Exports the KeepAChangelogParser class.
  *
- * @module @absolunet/keepachangelog-parser
+ * @module @valtech-commerce/keepachangelog-parser
  */
 
 /**

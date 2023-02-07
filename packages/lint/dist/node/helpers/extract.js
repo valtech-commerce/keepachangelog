@@ -1,7 +1,6 @@
 "use strict";
 
 exports.default = void 0;
-
 //--------------------------------------------------------
 //-- Extract helper
 //--------------------------------------------------------
@@ -33,14 +32,13 @@ class ExtractHelper {
       };
     });
   }
+
   /**
    * Extract the links.
    *
    * @param {object} data - Raw parsed data.
    * @returns {Array<{ link: string, title: string }>} List of links and release titles.
    */
-
-
   links({
     releases
   }) {
@@ -56,14 +54,13 @@ class ExtractHelper {
       };
     });
   }
+
   /**
    * Extract the dates.
    *
    * @param {object} data - Raw parsed data.
    * @returns {Array<{ date: string, title: string }>} List of dates and release titles.
    */
-
-
   dates({
     releases
   }) {
@@ -79,14 +76,13 @@ class ExtractHelper {
       };
     });
   }
+
   /**
    * Extract the flags.
    *
    * @param {object} data - Raw parsed data.
    * @returns {Array<{ flag: string, title: string }>} List of flags and release titles.
    */
-
-
   flags({
     releases
   }) {
@@ -102,14 +98,13 @@ class ExtractHelper {
       };
     });
   }
+
   /**
    * Extract the details.
    *
    * @param {object} data - Raw parsed data.
    * @returns {Array<{ details: string, title: string }>} List of details and release titles.
    */
-
-
   details({
     releases
   }) {
@@ -125,14 +120,13 @@ class ExtractHelper {
       };
     });
   }
+
   /**
    * Extract the change types.
    *
    * @param {object} data - Raw parsed data.
    * @returns {Array<{ type: string, title: string }>} List of change types and release titles.
    */
-
-
   changesTypes({
     raw: {
       title
@@ -148,11 +142,8 @@ class ExtractHelper {
       };
     });
   }
-
 }
-
 var _default = new ExtractHelper();
-
 exports.default = _default;
 module.exports = exports.default;
 module.exports.default = exports.default;

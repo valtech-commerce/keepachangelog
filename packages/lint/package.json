@@ -1,12 +1,12 @@
 {
-  "name": "@absolunet/keepachangelog-lint",
+  "name": "@valtech-commerce/keepachangelog-lint",
   "version": "1.0.0",
   "description": "Linter for Keep a Changelog",
   "definition": "",
-  "homepage": "https://documentation.absolunet.com/node-keepachangelog/lint",
+  "homepage": "https://valtech-commerce.github.io/keepachangelog/lint",
   "author": {
-    "name": "Absolunet",
-    "url": "https://absolunet.com"
+    "name": "Valtech Canada inc.",
+    "url": "https://www.valtech.ca/"
   },
   "keywords": [
     "changelog",
@@ -17,11 +17,11 @@
   ],
   "license": "MIT",
   "repository": {
-    "url": "git://github.com/absolunet/node-keepachangelog.git",
+    "url": "git://github.com/valtech-commerce/keepachangelog.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/absolunet/node-keepachangelog/issues"
+    "url": "https://github.com/valtech-commerce/keepachangelog/issues"
   },
   "engines": {
     "node": ">= 12.0.0"
@@ -40,8 +40,8 @@
   },
   "dependencies": {
     "@absolunet/joi": "^0.2.0",
-    "@absolunet/keepachangelog-parser": "1.0.0",
     "@absolunet/private-registry": "^2.0.0",
+    "@valtech-commerce/keepachangelog-parser": "1.0.0",
     "chalk": "^3.0.0",
     "clone-deep": "^4.0.1",
     "deepmerge": "^4.2.2",

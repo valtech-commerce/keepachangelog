@@ -1,23 +1,19 @@
 "use strict";
 
 exports.schema = exports.rule = exports.id = void 0;
-
 var _joi = require("@absolunet/joi");
-
 var _error = _interopRequireDefault(require("../helpers/error"));
-
 var _extract = _interopRequireDefault(require("../helpers/extract"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 //--------------------------------------------------------
 //-- no-duplicate-changes-types
 //--------------------------------------------------------
+
 //-- Id
-const id = 'no-duplicate-changes-types'; //-- Rule
+const id = 'no-duplicate-changes-types';
 
+//-- Rule
 exports.id = id;
-
 const rule = ({
   data,
   config: [enabled]
@@ -37,7 +33,6 @@ const rule = ({
           });
           reported.push(type);
         }
-
         found.push(type);
         return types;
       }, []));
@@ -52,13 +47,10 @@ const rule = ({
       });
     }, []);
   }
-
   return [];
-}; //-- Options schema
+};
 
-
+//-- Options schema
 exports.rule = rule;
-
 const schema = _joi.Joi.any().forbidden();
-
 exports.schema = schema;

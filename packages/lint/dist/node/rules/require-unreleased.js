@@ -1,21 +1,18 @@
 "use strict";
 
 exports.schema = exports.rule = exports.id = void 0;
-
 var _joi = require("@absolunet/joi");
-
 var _error = _interopRequireDefault(require("../helpers/error"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 //--------------------------------------------------------
 //-- require-unreleased
 //--------------------------------------------------------
+
 //-- Id
-const id = 'require-unreleased'; //-- Rule
+const id = 'require-unreleased';
 
+//-- Rule
 exports.id = id;
-
 const rule = ({
   data,
   config: [enabled]
@@ -28,13 +25,10 @@ const rule = ({
       })];
     }
   }
-
   return [];
-}; //-- Options schema
+};
 
-
+//-- Options schema
 exports.rule = rule;
-
 const schema = _joi.Joi.any().forbidden();
-
 exports.schema = schema;

@@ -1,7 +1,6 @@
 "use strict";
 
 exports.default = void 0;
-
 //--------------------------------------------------------
 //-- Config error
 //--------------------------------------------------------
@@ -21,9 +20,7 @@ class ConfigError extends Error {
     super(message);
     this.name = 'ConfigError';
   }
-
 }
-
 var _default = ConfigError;
 exports.default = _default;
 module.exports = exports.default;

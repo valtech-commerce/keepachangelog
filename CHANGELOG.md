@@ -22,5 +22,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 
-[Unreleased]: https://github.com/absolunet/node-keepachangelog/compare/1.0.0...HEAD
-[1.0.0]:      https://github.com/absolunet/node-keepachangelog/releases/tag/1.0.0
+[Unreleased]: https://github.com/valtech-commerce/keepachangelog/compare/1.0.0...HEAD
+[1.0.0]:      https://github.com/valtech-commerce/keepachangelog/releases/tag/1.0.0

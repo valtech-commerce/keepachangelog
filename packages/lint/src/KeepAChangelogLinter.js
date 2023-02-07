@@ -4,8 +4,8 @@
 import clone                     from 'clone-deep';
 import merge                     from 'deepmerge';
 import { Joi, validateArgument } from '@absolunet/joi';
-import { parser }                from '@absolunet/keepachangelog-parser';
 import __                        from '@absolunet/private-registry';
+import { parser }                from '@valtech-commerce/keepachangelog-parser';
 import formatters                from './formatters';
 import ConfigError               from './helpers/config-error';
 import defaultRules              from './rules';

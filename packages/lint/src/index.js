@@ -1,5 +1,5 @@
 //--------------------------------------------------------
-//-- @absolunet/keepachangelog-lint
+//-- @valtech-commerce/keepachangelog-lint
 //--------------------------------------------------------
 import KeepAChangelogLinter from './KeepAChangelogLinter';
 
@@ -7,7 +7,7 @@ import KeepAChangelogLinter from './KeepAChangelogLinter';
 /**
  * Exports the KeepAChangelogLinter class.
  *
- * @module @absolunet/keepachangelog-lint
+ * @module @valtech-commerce/keepachangelog-lint
  */
 
 /**
